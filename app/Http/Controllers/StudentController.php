@@ -16,6 +16,7 @@ class StudentController extends Controller
         return view('student.index', [
             'title' => 'Student',
             'students' => Student::latest()->get(),
+            // 'students' => Student::orderBy('name', 'asc')->get(),
         ]);
         
     }
@@ -93,7 +94,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        $student->delete();
+        $student->delete($student);
         return to_route('student.index')->withSuccess('Data Berhasil dihapus'); 
     }
 }

@@ -8,7 +8,8 @@
     </div>
     @endif
 
-    <a class="btn btn-primary mb-3" href="{{ route('student.create') }}" role="button">Create</a>
+    <a class="btn btn-primary mb-3" href="{{ route('student.create') }}" 
+    role="button">Create</a>
     
         <table class="table table-bordered border-dark table-hover">
     <thead>
