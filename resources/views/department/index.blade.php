@@ -11,7 +11,7 @@
     <a class="btn btn-primary mb-3" href="{{ route('department.create') }}" 
     role="button">Create</a>
     
-        <table class="table table-bordered border-dark table-hover">
+        <table class="table table-bordered border-dark table-hover" id="example">
     <thead>
         <tr>
         <th scope="col">#</th>
@@ -25,6 +25,8 @@
         <th scope="row">{{ $loop->iteration }}</th>
         <td>{{ $department->name }}</td>
         <td>
+            <a class="btn btn-info" href="{{ route('department.show', $department) }}" role="button">Detail</a>
+
             <a class="btn btn-warning" href="{{ route('department.edit', $department) }}" role="button">Edit</a>
 
                 <form action="{{ route('department.destroy', $department) }}" method="post" class="d-inline">
