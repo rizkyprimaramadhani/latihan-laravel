@@ -11,11 +11,13 @@
     <a class="btn btn-primary mb-3" href="{{ route('lecturer.create') }}" 
     role="button">Create</a>
     
-        <table class="table table-bordered border-dark table-hover" id="example">
+    <table class="table table-bordered border-dark table-hover" id="example">
+
     <thead>
         <tr>
         <th scope="col">#</th>
         <th scope="col">Nama</th>
+        <th scope="col">Department</th>
         <th scope="col">Aksi</th>
         </tr>
     </thead>
@@ -23,7 +25,12 @@
         @foreach ($lecturers as $lecturer)
         <tr>
         <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{ $lecturer->name }}</td>
+        <td>
+            <img src="{{ $lecturer->avatar ? 
+            asset('storage/' . $lecturer->avatar) : 
+            asset('image/no-images.jpeg') }}" 
+                alt="" width="50">
+            {{ $lecturer->name }}</td>
         <td>{{ $lecturer->department->name }}</td>
         <td>
             <a class="btn btn-warning" href="{{ route('lecturer.edit', $lecturer) }}" role="button">Edit</a>
