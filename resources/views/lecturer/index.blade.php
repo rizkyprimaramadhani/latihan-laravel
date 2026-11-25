@@ -25,14 +25,11 @@
         @foreach ($lecturers as $lecturer)
         <tr>
         <th scope="row">{{ $loop->iteration }}</th>
-        <td>
-            <img src="{{ $lecturer->avatar ? 
-            asset('storage/' . $lecturer->avatar) : 
-            asset('image/no-images.jpeg') }}" 
-                alt="" width="50">
-            {{ $lecturer->name }}</td>
+        <td>{{ $lecturer->name }}</td>
         <td>{{ $lecturer->department->name }}</td>
         <td>
+            <a class="btn btn-info" href="{{ route('lecturer.show', $lecturer) }}" role="button">Detail</a>
+
             <a class="btn btn-warning" href="{{ route('lecturer.edit', $lecturer) }}" role="button">Edit</a>
 
                 <form action="{{ route('lecturer.destroy', $lecturer) }}" method="post" class="d-inline">
